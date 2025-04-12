@@ -9,8 +9,8 @@ public static class Endpoints
 
 {
   
-    const string GetGameEndpointName = "GetGame";
-    public static readonly List<GameDto> games = [
+    const string GetGameEndpointName = "GetGame"; //This replaces the hardcoded string in the MapGet method. This is a good practice to avoid typos and make it easier to change the name in one place if needed.
+    public static readonly List<GameDto> games = [ // Dummy data for the sake of example. In a real application, this would be replaced with a database or other data source.
 
     new ( 1, "Game 1", "Action", 69.99M, new DateOnly(2023, 10, 1)),
     new ( 2, "Game 2", "Adventure", 49.99M, new DateOnly(2023, 10, 1)), 
@@ -19,14 +19,23 @@ public static class Endpoints
 
 public static RouteGroupBuilder MapGameEndpoints(this WebApplication app)
 {
-    var group = app.MapGroup("games");
+    var group = app.MapGroup("games") // Grouping the endpoints under "games". Can replace "games"
+    //  a "/"  so app.MapGet("/games") will become  group.MapGet("/",
+                    .WithParameterValidation(); // This is a custom extension method from MinimalApisExtension
+                    //                               to validate 
+                    //                              the parameters. You can implement this method 
+                    //                              to check if the parameters are 
+                    //                              valid before processing the request.
+
     //GET ALL GAMES
-    group.MapGet("/", () => games);
+    group.
+    MapGet("/", () => games);
 
     // GET GAME BY ID
     group.MapGet("/{id}", (int id) =>
     {
-        GameDto? game = games.Find(game => game.Id == id);
+        GameDto? game = games.Find(game => game.Id == id); //GameDto? is nullable this means it can be null
+        // if game is null, return 404 Not Found, else return 200 OK with the game data
 
         return game is null ? Results.NotFound() : Results.Ok(game); // 404 Not Found or 200 OK
     })

@@ -27,3 +27,9 @@ C:\Users\neilc\git-clones\MyEmptyWebApp\obj\Debug\net9.0\MyEmptyWebApp.pdb
 C:\Users\neilc\git-clones\MyEmptyWebApp\obj\Debug\net9.0\MyEmptyWebApp.genruntimeconfig.cache
 C:\Users\neilc\git-clones\MyEmptyWebApp\obj\Debug\net9.0\ref\MyEmptyWebApp.dll
 C:\Users\neilc\git-clones\MyEmptyWebApp\obj\Debug\net9.0\MyEmptyWebApp.sourcelink.json
+C:\Users\neilc\git-clones\MyEmptyWebApp\bin\Debug\net9.0\Microsoft.OpenApi.dll
+C:\Users\neilc\git-clones\MyEmptyWebApp\bin\Debug\net9.0\MinimalApis.Extensions.dll
+C:\Users\neilc\git-clones\MyEmptyWebApp\bin\Debug\net9.0\MiniValidation.dll
+C:\Users\neilc\git-clones\MyEmptyWebApp\obj\Debug\net9.0\MyEmptyWebApp.csproj.AssemblyReference.cache
+C:\Users\neilc\git-clones\MyEmptyWebApp\obj\Debug\net9.0\MyEmptyWebApp.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\neilc\git-clones\MyEmptyWebApp\obj\Debug\net9.0\MyEmptyW.37593F45.Up2Date

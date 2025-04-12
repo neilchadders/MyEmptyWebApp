@@ -24,7 +24,7 @@ Content-Type: application/json
 {
   "name": "Updated Game 1",
   "genre": "Action",
-  "price": 4009.99,
+  "price": 49.99,
   "releaseDate": "2023-01-01"
 }
 
