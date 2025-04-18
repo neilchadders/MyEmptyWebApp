@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using MyEmptyWebApp.Entities;
 
 namespace MyEmptyWebApp.Data;
 
