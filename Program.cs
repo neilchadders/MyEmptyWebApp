@@ -11,4 +11,5 @@ var app = builder.Build();
 
 app.MapGameEndpoints(); // Call the extension method to map the endpoints
 
+app.MigrateDB(); // Call the extension method to migrate the database
 app.Run();
