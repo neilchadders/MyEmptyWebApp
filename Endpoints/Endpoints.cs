@@ -1,6 +1,8 @@
 using MyEmptyWebApp.Dto;
 using CreateGame.Dto;
-using UpdateGames.Dto;
+using UpdateGames.Dto;          
+using MyEmptyWebApp.Data;
+using MyEmptyWebApp.Entities;
 
 
 namespace MyEmptyWebApp.Endpoints;
@@ -43,13 +45,20 @@ public static RouteGroupBuilder MapGameEndpoints(this WebApplication app)
 
     //ADD NEW GAME
 
-    group.MapPost("/", (CreateGameDto newGame) =>
+    group.MapPost("/", (CreateGameDto newGame, GameStoreContext dbContext) =>
     {
-        GameDto game = new(
-            games.Count + 1, newGame.Name, newGame.Genre, newGame.Price, newGame.ReleaseDate);
-        games.Add(game);
-        return Results.CreatedAtRoute(GetGameEndpointName, new { id = game.Id }, game);
-
+       Game game = new()
+       {
+            Name = newGame.Name,
+            Genre = dbContext.Genres.Find(newGame.GenreId), // Assuming GenreId is a foreign key in the Game table
+            GenreId = newGame.GenreId,
+            Price = newGame.Price,
+            ReleaseDate = newGame.ReleaseDate
+        };
+        dbContext.Games.Add(game);
+        dbContext.SaveChanges();
+        return Results.CreatedAtRoute(GetGameEndpointName, new { id = game.Id }, game); // 201 Created
+        // 201 Created with the location of the new resource in the Location header
     });
 
     //Update Games

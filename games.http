@@ -12,7 +12,7 @@ Content-Type: application/json
 
 {
   "name": "Game 2222",
-  "genre": "RP11G",
+  "genreId": 1,
   "price": 59.99,
   "releaseDate": "2025-01-01"
 }
